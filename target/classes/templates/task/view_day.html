@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Задания на день</title>
+</head>
+<body>
+<h2>Список спринтов</h2>
+<table id="usersList">
+    <tr>
+        <th>#</th>
+        <th>Название</th>
+        <th>Дата Задачи</th>
+        <th>Описание</th>
+        <th>Действия</th>
+    </tr>
+
+    <tr th:each="task : ${tasks}">
+        <td th:utext="${task.task_id}"></td>
+        <td th:utext="${task.title}"></td>
+        <td th:utext="${#dates.format(task.taskDate, 'dd-MM-yyyy')}"></td>
+        <td th:utext="${task.description}"></td>
+        <td><a th:href="@{/delete/__${task.task_id}__}">Удалить</a><br/></td>
+    </tr>
+</table>
+</body>
+</html>

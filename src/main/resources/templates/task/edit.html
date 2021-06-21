@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Task/edit</title>
+</head>
+<body>
+<form method="post" th:object="${task}" action="/edit">
+    <input type="hidden" th:field="*{task_id}"/>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td><input type="text" th:field="*{title}"/></td>
+        </tr>
+        <tr>
+            <td>Дата Задачи</td>
+            <td><input type="date" th:field="*{taskDate}"/></td>
+        </tr>
+        <tr>
+            <td>Описание</td>
+            <td><textarea rows="10" cols="45" th:field="*{description}"></textarea></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Сохранить</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
